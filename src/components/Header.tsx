@@ -26,15 +26,6 @@ const Header = () => {
                     defaultValue={selectedDealer} 
                     onChange={handleDealerChange} 
                     styles='mx-4 px-2 cursor-pointer border-lg py-2'/>
-            
-            {/* <button className='flex px-4 py-2 border-lg font-semibold'
-            style={{ background: '#fff'}}>
-                <MdFilterList 
-                    className='mt-1 mr-2'
-                    style={{ color: 'orange' }}
-                />
-                FILTER DATA BY
-            </button> */}
             <FilterButton />
         </div>
     </div>

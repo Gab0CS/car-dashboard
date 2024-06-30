@@ -7,7 +7,7 @@ import { FaCircle } from "react-icons/fa";
 
 const Navbar = () => {
   return (
-    <nav className='flex justify-between h-16 items-center' style={{ background: '#404041', color: '#fff'}}>
+    <nav className='w-100 flex justify-between h-16 items-center' style={{ background: '#404041', color: '#fff'}}>
       <div className='flex-start px-[30px] flex items-center'>
         <Image 
             src={logo}

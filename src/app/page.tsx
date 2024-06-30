@@ -8,6 +8,7 @@ export default function Home() {
       <Navbar />
       <main className="px-10">
         <Header />
+        <hr />
         <DataShower />
       </main>
       
