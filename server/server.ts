@@ -4,12 +4,11 @@ dotenv.config();
 import express, { Request, Response } from 'express';
 import next from 'next';
 import bodyParser from 'body-parser';
-import csv from 'csv-parser';
 import fs from 'fs';
 import path from 'path';
 
-// Interface for the CSV data
-interface CsvData {
+// Interface for the JSON data
+interface JsonData {
   condition: string;
   description: string;
   title: string;
@@ -31,39 +30,31 @@ app.prepare().then(() => {
   // Body parser to parse the requests
   server.use(bodyParser.json());
 
-  // Route of the api
   server.get('/api/inventory', (req: Request, res: Response) => {
-    
-    // Array to store the data
-    const results: CsvData[] = [];
+    try {
+      // Path to the JSON file
+      const filePath = path.join(__dirname, 'data', 'csvjson.json');
 
-    // Path to the CSV file
-    const filePath = path.join(__dirname, 'data', 'sample-data-v2.csv');
-    
-    // Read Stream for the csv file
-    fs.createReadStream(filePath)
-      .pipe(csv())
-      .on('data', (data: CsvData) => results.push(data))
-      .on('end', () => {
-        res.json(results);
-      })
-      .on('error', (error) => {
-        res.status(500).json({ error: error.message });
-      });
+      const jsonData: JsonData[] = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+
+      res.json(jsonData);
+    } catch (error) {
+      console.error('Error reading file:', error);
+      res.status(500).json({ error: 'Failed to fetch data' });
+    }
   });
 
-  // if other request handle also it
+  // Handle all other requests with Next.js
   server.all('*', (req: Request, res: Response) => {
     return handle(req, res);
   });
 
-  // Server start
+  // Start the server
   server.listen(3000, (err?: any) => {
     if (err) throw err;
     console.log('> Ready on http://localhost:3000');
   });
 }).catch((err) => {
-  // Handle errors
-  console.error(err.stack);
+  console.error('Error starting server:', err);
   process.exit(1);
 });

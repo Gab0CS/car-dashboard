@@ -1,8 +1,17 @@
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
+import DataShower from "./DataShower";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
-    <Navbar />
+    <>
+      <Navbar />
+      <main className="px-10">
+        <Header />
+        <DataShower />
+      </main>
+      
+    </>
+    
   );
 }
