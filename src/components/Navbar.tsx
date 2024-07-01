@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import FFicon from '../../public/FFicon.png';
+// import FFicon from '../../public/FFicon.png';
+import logo from '../../public/logo.png';
 import support from '../../public/Vector.png';
 import { IoIosArrowDown } from "react-icons/io";
 import { FaCircle } from "react-icons/fa";
@@ -9,13 +10,14 @@ const Navbar = () => {
   return (
     <nav className='w-100 flex justify-between h-16 items-center' style={{ background: '#404041', color: '#fff'}}>
       <div className='flex-start px-[30px] flex items-center'>
-        <Image 
-            src={FFicon}
+        <div className='mx-2'>
+          <Image 
+            src={logo}
             width={40}
             height={40}
-            className='mx-2'
             alt='Fountain forward logo'
-        />
+          />
+        </div>
         <h1 className='text-lg'>
           Admin Console
         </h1>
