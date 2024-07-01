@@ -5,8 +5,11 @@ import Header from "@/components/Header";
 import InventoryCountChart from "@/components/InventoryCountChart";
 import jsonData from '../../server/data/csvjson.json'
 import AverageMsrpChart from "@/components/AverageMsrpChart";
+import InventoryTable from "@/components/InventoryTable";
+import { dataTable } from "../../constants/tableData";
 
 export default function Home() {
+  
   return (
     <>
       <Navbar />
@@ -16,6 +19,7 @@ export default function Home() {
         <DataShower />
         <InventoryCountChart data={jsonData}/>
         <AverageMsrpChart data={jsonData} />
+        <InventoryTable data={dataTable}/>
       </main>
       
     </>
