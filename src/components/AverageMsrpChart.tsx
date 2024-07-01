@@ -27,7 +27,7 @@ const AverageMsrpChart: React.FC<AverageMsrpChartProps> = ({ data }) => {
     ],
   };
 
-  const options = {
+  const options: any = {
     responsive: true,
     plugins: {
       legend: {
