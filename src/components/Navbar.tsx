@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import logo from '../../public/FFicon.png'
-import support from '../../public/Vector.png'
+import FFicon from '../../public/FFicon.png';
+import support from '../../public/Vector.png';
 import { IoIosArrowDown } from "react-icons/io";
 import { FaCircle } from "react-icons/fa";
 
@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className='w-100 flex justify-between h-16 items-center' style={{ background: '#404041', color: '#fff'}}>
       <div className='flex-start px-[30px] flex items-center'>
         <Image 
-            src={logo}
+            src={FFicon}
             width={40}
             height={40}
             className='mx-2'
